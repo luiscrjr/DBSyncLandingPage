@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        #back-to-top {
+            background: #243446;
+            bottom: 20px;
+            -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+            -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+            color: #fff;
+            cursor: pointer;
+            display: block;
+            height: 56px;
+            opacity: 1;
+            outline: 0;
+            position: fixed;
+            right: 20px;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-transition: bottom .2s, opacity .2s;
+            -o-transition: bottom .2s, opacity .2s;
+            -moz-transition: bottom .2s, opacity .2s;
+            transition: bottom .2s, opacity .2s;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            width: 56px;
+            z-index: 1
+        }
+
+        #back-to-top svg {
+            display: block;
+            fill: currentColor;
+            height: 24px;
+            margin: 16px auto 0;
+            width: 24px
+        }
+
+        #back-to-top.hidden {
+            bottom: -56px;
+            opacity: 0
+        }
+    </style>
+    <title>DBSync</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="description"
+        content="Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases. Debezium is durable and fast, so your apps can respond quickly and never miss an event, even when things go wrong.">
+    <meta content="Debezium" property="og:site_name">
+    <meta content="Debezium" property="og:title">
+    <meta content="https://debezium.io/assets/images/color_black_debezium_type_1200px.png" property="og:image"
+        name="image">
+    <meta property="og:description"
+        content="Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases. Debezium is durable and fast, so your apps can respond quickly and never miss an event, even when things go wrong.">
+    <link rel="shortcut icon" type="image/png" href="https://drive.google.com/uc?id=13Rpxpgpa3alDFL6XNbyBUITBEP_5StHA"> -->
+    <link rel="stylesheet" href="./DBSync_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./DBSync_files/custom.css">
+    <link rel="stylesheet" href="./DBSync_files/highlight.min.css">
+    <link rel="stylesheet" href="./DBSync_files/coderay.css">
+</head>
+
+<body class="homepage">
+    <div id="rhbar"> </div>
+    <div id="">
+        <div class="container" id="content">
+            <nav class="navbar navbar-inverse navbar-fix">
+                <div class="container-fluid">
+                    <div class="navbar-header"> <button class="navbar-toggle collapsed border-0" type="button"
+                            data-toggle="collapse" data-target="#navigation" aria-controls="navigation"
+                            aria-expanded="false" aria-label="Toggle navigation"> <span class="icon-bar"></span> <span
+                                class="icon-bar"></span> <span class="icon-bar"></span> </button> <a
+                            class="navbar-brand" href="#"><img class="project-logo"
+                                src="./DBSync_files/images/iconeDBSynctexto.png"
+                                style="height: 45px; margin-right: 5px; margin-top: -10px;"></a> </div>
+                    <div class="collapse navbar-collapse collapsed" id="navigation">
+                        <ul class="nav navbar-nav pull-right">
+                            <li> <a href="#" class="">FAQ</a> </li>
+                            <li class="item"> <a href="#" class="">Documentação</a>
+                            </li>
+                            <li> <a href="#" class="">Releases</a> </li>
+                            <li> <a href="#" class="">Blog</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="jumbotron" style="background-color: #810000; background:''">
+                <div class="row hidden-sm hidden-xs">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col">
+                                <h1>DBSync</h1>
+                                <h3>Gerencie as replicações para suas bases de dados.</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col col-md-offset-5"> <br> <a
+                                    class="btn btn-primary btn-stable btn-block btn-md"
+                                    href="#" style="width: 190px">
+                                    <div>
+                                        <div style="float: left">Features atuais</div>
+                                        <div style="float: right"> <span class="icon-arrow-right"></span> </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                </a> <a class="btn btn-primary btn-development btn-block btn-md"
+                                    href="#" style="width: 190px">
+                                    <div>
+                                        <div style="float: left">Em DEV</div>
+                                        <div style="float: right"> <span class="icon-arrow-right"></span> </div>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                </a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row hidden-sm hidden-xs">
+                    <div class="col">
+                        <p> DBSync é uma plataforma distribuída para change data capture. Sincronize ações como insert,
+                            update e detele entre repositórios de dados, tais como Informix, SqlServer, Postgres,
+                            MongoDB, Mysql, MariaDB, Oracle, entre outros. Execute a carga inicial das suas tabelas
+                            diretamente da origem para o destino, passando apenas os comandos a serem executados. O
+                            DBSync possui uma interface amigável para gerenciamento, sendo construída sobre o Openshit e
+                            trazendo consigo o Debezium, tornando a plataforma ainda mais escalável e consistente. </p>
+                        <h3> <a class="btn btn-primary btn-lg" style="background-color:#535353" href="#">Leia nossa
+                                Wiki</a> </h3>
+                    </div>
+                </div>
+                <div class="visible-sm visible-xs">
+                    <div class="col">
+                        <h1>DBSync</h1>
+                        <h3>Gerencie as replicações para suas bases de dados.</h3>
+                        <p> DBSync é uma plataforma distribuída para change data capture. Sincronize ações como insert,
+                            update e detele entre repositórios de dados, tais como Informix, SqlServer, Postgres,
+                            MongoDB, Mysql, MariaDB, Oracle, entre outros. Execute a carga inicial das suas tabelas
+                            diretamente da origem para o destino, passando apenas os comandos a serem executados. O
+                            DBSync possui uma interface amigável para gerenciamento, sendo construída sobre o Openshit e
+                            trazendo consigo o Debezium, tornando a plataforma ainda mais escalável e consistente. </p>
+                        <h3> <a class="btn btn-primary btn-stable btn-block btn-lg"
+                                href="#" style="">
+                                <div>
+                                    <div style="float: left">Features atuais</div>
+                                    <div style="float: right"> <span class="icon-arrow-right"></span> </div>
+                                    <div style="clear: both"></div>
+                                </div>
+                            </a> <a class="btn btn-primary btn-development btn-block btn-lg"
+                                href="#" style="">
+                                <div>
+                                    <div style="float: left">Em DEV</div>
+                                    <div style="float: right"> <span class="icon-arrow-right"></span> </div>
+                                    <div style="clear: both"></div>
+                                </div>
+                            </a> <a class="btn btn-primary btn-lg btn-block"
+                                href="#">Try our
+                                tutorial</a> </h3>
+                    </div>
+                </div>
+            </div> <br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card text-white bg-danger mb-3 jumbotron" style="height: 250px; padding: 30px; background-color:#535353">
+                        <p class="card-text"><h3>Carga inicial</h3></p>
+                        <div class="card-body">
+                        <p class="card-text">Inicie a primeira carga do sistema, levando dados da origem para o destino, usando uma interface amigável.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card text-white bg-danger mb-3 jumbotron" style="height: 250px; padding: 30px; background-color:#535353">
+                        <p class="card-text"><h3>Low-code</h3></p>
+                        <div class="card-body">
+                        <p class="card-text">Gerencie suas sincronizações via interface, usando pouco código somente para a carga inicial.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card text-white bg-danger mb-3 jumbotron" style="height: 250px; padding: 30px;  background-color:#535353">
+                        <p class="card-text"><h3>Replicação</h3></p>
+                        <div class="card-body">
+                        <p class="card-text">Sincronização de dados robusta e escalável com o uso do <b><a href="http://debezium.io" target="_blank" style="color:white">DEBEZIUM</a></b> e da infraestrutura do <b><a href="https://www.redhat.com/pt-br/technologies/cloud-computing/openshift" target="_blank" style="color:white">OPENSHIFT</a></b>.</p>
+                        <br> <br> <br>  <br>
+                    </div>
+                </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card text-white bg-danger mb-3 jumbotron" style="height: 250px; padding: 30px; background-color:#535353">
+                        <p class="card-text"><h3>Sobreaviso</h3></p>
+                        <div class="card-body">
+                        <p class="card-text">A plataforma adota a observabilidade, envia alertas via Telegram, e-mail e outros. Está no sobreviso para dar suporte ao times.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> <br> <br> <br> <br> <br> 
+            <!-- <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <h2>Reduza esforço de implementações</h2>
+                    <p> Como o DBSync tem a capacidade de escrever dados diretamente nas bases de dados de destino, você
+                        não precisa se preocupar em manter a escrita dos dados nas suas aplicações. Basta cadastrar as
+                        conexões com as bases de dados de origem e destino, que o DBSync faz o restante do trabalho.
+                    </p>
+                </div>
+                <div class="col-md-2"> <br> <br> <i class="enormous-icon icon-code circled pull-center" style="background-color: #810000;"></i> </div>
+            </div> <br> <br> <br> <br> -->
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/DBSyncDataCapcity.jpg" style="border-radius: 20px; width:400px;  margin-top:-40px;" alt="">
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>Amplie o poder dos seus dados</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-3">
+                    <p> Seus dados são alterados o tempo todo. 
+                        <br>O DBSync habilita seus aplicativos a reagirem a cada
+                        alteração de dados. 
+                        <br>Com o monitoramento em tempo real dos dados, o DBSync transmite os dados
+                        para o repositório de destino assim que a transação é confirmada. 
+                        <br>Utilize a capacidade do CDC
+                        integrado com o Kafka para realizar o decopling das suas aplicações, sem precisar alterar
+                        nenhuma linha de código. </p>
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <h2>Reduza esforço de implementações</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <p> Como o DBSync tem a capacidade de escrever dados diretamente nas bases de dados de destino, você
+                        não precisa se preocupar em manter a escrita dos dados nas suas aplicações. 
+                        <br>Basta cadastrar as conexões com as bases de dados de origem e destino, que o DBSync faz o restante do trabalho.
+                    </p>
+                </div>
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/telaGestaoConectores.png" style="border-radius: 10px; width:400px; margin-top:-100px;" alt="">
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/telaConectores.png" style="border-radius: 20px; width:400px;  margin-top:-20px;" alt="">
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>Monitore o status de cada conector</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-3">
+                    <p>Com a interface do DBSync interagindo com a API do DEBEZIUM, é possível monitorar o status de cada conector, bem como as suas definições, de forma protegida.
+                        <br> Caso seja necessária alguma manutenção, existe também a possibilidade de pausar e reiniciar a sincronização.
+                        <br> Caso exista alguma falha no conector, é possível saber qual é a falha clicando no status de falha.
+                    </p>
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>
+             <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <h2>Ganhe velocidade</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <p> Quando bem configurado, o DBSync é rápido. E isso significa que a entrega dos dados beira o
+                        tempo real. O DBSync usa o Kafka, que é comprovado, escalável e lida com grandes volumes de
+                        dados muito rapidamente. Além disso, usa a infraestrutura do Openshift, que pode ser escalada
+                        para persistir esses dados tão rapidamente quanto são lidos.</p>
+                </div>
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/telaGestaoParametros.png" style="border-radius: 10px; width:400px; margin-top:-100px;" alt="">
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/telegramEmail.jpg" style="border-radius: 20px; width:400px;  margin-top:-20px;" alt="">
+                </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>Evite a perda de dados</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-3">
+                    <p> Mesmo em cenário de downtime das aplicações, o DBSync continua a sincronização exatamente de
+                        onde parou. Com a segurança da entrega dos dados via Kafka, cada cliente tem gravado exatamente
+                        o ultimo dado que foi lido e entregue, dando continuidade na entrega dos dados assim que os
+                        recursos voltam a ficar disponíveis. Além disso, a aplicação está coberta pelo sobreaviso e envia alertas de falhas via Telegram e e-mail.</p>
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>
+            <!-- <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <h2>Ganhe velocidade</h2>
+                    <p> Quando bem configurado, o DBSync é rápido. E isso significa que a entrega dos dados beira o
+                        tempo real. O DBSync usa o Kafka, que é comprovado, escalável e lida com grandes volumes de
+                        dados muito rapidamente. Além disso, usa a infraestrutura do Openshift, que pode ser escalada
+                        para persistir esses dados tão rapidamente quanto são lidos.</p>
+                </div>
+                <div class="col-md-2"> <br> <br> <i class="enormous-icon icon-rocket circled pull-center" style="background-color: #810000;"></i> </div>
+                
+            </div><br> <br> <br> -->
+            <!-- <div class="row">
+                <div class="col-md-2 col-md-offset-2"> <br> <br> <i
+                        class="enormous-icon icon-shield circled pull-center" style="background-color: #810000;"></i> </div>
+                <div class="col-md-6">
+                    <h2>Evite a perda de dados</h2>
+                    <p> Mesmo em cenário de downtime das aplicações, o DBSync continua a sincronização exatamente de
+                        onde parou. Com a segurança da entrega dos dados via Kafka, cada cliente tem gravado exatamente
+                        o ultimo dado que foi lido e entregue, dando continuidade na entrega dos dados assim que os
+                        recursos voltam a ficar disponíveis. Além disso, a aplicação está coberta pelo sobreaviso e envia alertas de falhas via Telegram e e-mail.</p>
+                </div>
+            </div> <br> <br> <br> --> 
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1">
+                    <h2>Múltiplos conectores</h2>
+                    <br>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <p> Com o DBSync e seus conectores, é possível que os tipos de bases de dados do origem e destino sejam diferentes. 
+                        Por exemplo, torna-se possível que os dados sejam de origem SqlServer e sejam escritos em um MongoDB, no destino. 
+                        Como o DBSync usa o DEBEZIUM, o modelo de mensagem produzida fica no formato JSON, tornando simples a leitura e persistência dos dados.
+                    </p>
+                </div>
+                <div class="col-md-2 col-md-offset-1"> <br> <br> 
+                    <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
+                    <img src="./DBSync_files/images/DBSyncConectors.png" style="border-radius: 10px; width:450px; margin-top:-100px;margin-left:-80px;" alt="">
+                </div>
+            </div> <br> <br> <br> <br> <br> <br>            
+        </div>
+    </div>
+        <footer class="container">
+            <div>
+                <div class="row mr-0 ml-0">
+                    <div class="col-md-5 col-md-offset-1">
+                        <h4>DBSync</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Documentation</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#"
+                                    title="Features">Features</a></li>
+                            <li> <a href="#"
+                                    title="Install">Readme</a> </li>
+                            <li> <a href="#"
+                                    title="Architecture">Arquitetura</a> </li>
+                            <li><a href="#" title="FAQ">FAQ</a></li>
+                            <li> <a href="#" title="Contribute">Contribua</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Fale Conosco</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" title="Blog">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" async="" src="./DBSync_files/analytics.js.download"></script>
+    <script type="text/javascript" async="" src="./DBSync_files/js"></script>
+    <script async="" src="./DBSync_files/js(1)"></script>
+    <script>function gtag() { dataLayer.push(arguments) } window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-76464546-1");</script>
+    <script src="./DBSync_files/jquery.min.js.download"></script>
+    <script src="./DBSync_files/bootstrap.min.js.download"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./DBSync_files/vanilla-back-to-top.min.js.download"></script>
+    <script type="text/javascript" src="./DBSync_files/highlight.min.js.download"></script>
+    <script>addBackToTop({ scrollDuration: 400 }), hljs.initHighlightingOnLoad();</script>
+    <div id="back-to-top" class="hidden"><svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+        </svg></div>
+</body>
+
+</html>
