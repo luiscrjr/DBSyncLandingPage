@@ -111,10 +111,10 @@
                     <div class="row hidden-sm hidden-xs">
                         <div class="col">
                             <p> DBSync é uma plataforma distribuída para change data capture. Sincronize ações como insert,
-                                update e detele entre repositórios de dados, tais como Informix, SqlServer, Postgres,
+                                update e delete entre repositórios de dados, tais como Informix, SqlServer, Postgres,
                                 MongoDB, Mysql, MariaDB, Oracle, entre outros. Execute a carga inicial das suas tabelas
                                 diretamente da origem para o destino, passando apenas os comandos a serem executados. O
-                                DBSync possui uma interface amigável para gerenciamento, sendo construída sobre o Openshit e
+                                DBSync possui uma interface amigável para gerenciamento, sendo construída sobre o Openshift e
                                 trazendo consigo o Debezium, tornando a plataforma ainda mais escalável e consistente. </p>
                             <h3> <a class="btn btn-primary btn-lg" style="background-color:#535353" href="#">Leia nossa
                                     Wiki</a> </h3>
@@ -154,7 +154,7 @@
             </section>
             <div class="row">
                 <center><h1 style="color: black;">Faça seu sistema reagir a eventos de atualizações de dados</h1></center>.
-                <center><h4 style="color: black;">Aproveite o poder do Kafka + DBSync para efetuar a leitura de tópicos específicos e tomar ações nos cenários de seu interesse.</h4></center>
+                <center><h4 style="color: black;">Aproveite o poder do DBSync + Kafka para efetuar a leitura de tópicos específicos e tomar ações nos cenários de seu interesse.</h4></center>
             </div>
             <br><br>
             <div class="row">
@@ -177,7 +177,7 @@
                         <br>
                         <p class="card-text"><h3><b style="color: black;">Low-code</b></h3></p>
                         <div class="card-body">
-                        <p class="card-text" style="color: black;">Gerencie suas sincronizações via interface, usando pouco código somente para a carga inicial.</p>
+                        <p class="card-text" style="color: black;">Gerencie suas sincronizações via interface, usando código somente para personalizar sua carga inicial.</p>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                         <br>
                         <p class="card-text"><h3><b style="color: black;">Suporte 24/7</b></h3></p>
                         <div class="card-body">
-                        <p class="card-text" style="color: black;">A plataforma adota a observabilidade, envia alertas via Telegram, e-mail e outros. Está no sobreviso para dar suporte aos times.</p>
+                        <p class="card-text" style="color: black;">A plataforma adota a observabilidade, envia alertas via Telegram, e-mail e outros. Está no sobreaviso para dar suporte aos times.</p>
                     </div>
                 </div>
             </div>
@@ -232,7 +232,7 @@
                         <br>Com o monitoramento em tempo real dos dados, o DBSync transmite os dados
                         para o repositório de destino assim que a transação é confirmada. 
                         <br>Utilize a capacidade do CDC
-                        integrado com o Kafka para realizar o decopling das suas aplicações, sem precisar alterar
+                        integrado com o Kafka para realizar o decoupling das suas aplicações, sem precisar alterar
                         nenhuma linha de código. </p>
                 </div>
             </div> <br> <br> <br> 
@@ -268,7 +268,7 @@
                 <div class="col-md-5 col-md-offset-3">
                     <p style="color: black;">Com a interface do DBSync interagindo com a API do DEBEZIUM, é possível monitorar o status de cada conector, bem como as suas definições, de forma protegida.
                         <br> Caso seja necessária alguma manutenção, existe também a possibilidade de pausar e reiniciar a sincronização.
-                        <br> Caso exista alguma falha no conector, é possível saber qual é a falha clicando no status de falha.
+                        <br> Caso exista alguma falha no conector, é possível saber os detalhes da exceção clicando no status de falha.
                     </p>
                 </div>
             </div> <br> <br> <br>
@@ -280,10 +280,12 @@
                     <br>
                 </div>
                 <div class="col-md-5 col-md-offset-1">
-                    <p style="color: black;"> Quando bem configurado, o DBSync é rápido. E isso significa que a entrega dos dados beira o
-                        tempo real. O DBSync usa o Kafka, que é comprovado, escalável e lida com grandes volumes de
-                        dados muito rapidamente. Além disso, usa a infraestrutura do Openshift, que pode ser escalada
-                        para persistir esses dados tão rapidamente quanto são lidos.</p>
+                    <p style="color: black;"> Quando bem configurado, o DBSync é rápido. 
+                        <br>Isso significa que a entrega dos dados beira o
+                        tempo real. 
+                        <br>O DBSync usa o Kafka, que é robusto, escalável e lida com grandes volumes de
+                        dados rapidamente. Além disso, usa a infraestrutura do Openshift, que pode ser escalada
+                        para persistir esses dados tão velozmente quanto são lidos.</p>
                 </div>
                 <div class="col-md-2 col-md-offset-1"> <br> <br> 
                     <!-- <i class="enormous-icon icon-sitemap circled pull-center" style="background-color: #810000;"></i> </div> -->
@@ -302,10 +304,8 @@
                     <br>
                 </div>
                 <div class="col-md-5 col-md-offset-3">
-                    <p style="color: black;"> Mesmo em cenário de downtime das aplicações, o DBSync continua a sincronização exatamente de
-                        onde parou. Com a segurança da entrega dos dados via Kafka, cada cliente tem gravado exatamente
-                        o ultimo dado que foi lido e entregue, dando continuidade na entrega dos dados assim que os
-                        recursos voltam a ficar disponíveis. Além disso, a aplicação está coberta pelo sobreaviso e envia alertas de falhas via Telegram e e-mail.</p>
+                    <p style="color: black;"> Mesmo em um cenário de downtime das aplicações, após o reestabelecimento dos recursos o DBSync volta a sincronizar os dados. Com a segurança da entrega dos dados via Kafka, cada cliente tem gravado exatamente
+                        o último dado que foi lido e entregue. Além disso, a aplicação está coberta pelo sobreaviso e envia alertas de falhas via Telegram e e-mail.</p>
                 </div>
             </div> <br> <br> <br> 
             <hr style="margin-top: 22px; margin-bottom: 22px; border: 0; border-top: 6px solid #e6e7e8; border-radius: 20px; width: 72px;">
@@ -338,9 +338,9 @@
                     <br>
                 </div>
                 <div class="col-md-5 col-md-offset-1">
-                    <p style="color: black;"> Com o DBSync e seus conectores, é possível que os tipos de bases de dados do origem e destino sejam diferentes. 
-                        Por exemplo, torna-se possível que os dados sejam de origem SqlServer e sejam escritos em um MongoDB, no destino. 
-                        Como o DBSync usa o DEBEZIUM, o modelo de mensagem produzida fica no formato JSON, tornando simples a leitura e persistência dos dados.
+                    <p style="color: black;"> Com o DBSync e seus conectores, habilitamos que os tipos de bases de dados de origem e destino sejam diferentes. 
+                        Por exemplo, abrimos a possibilidade de que os dados sejam de origem SqlServer e sejam escritos em um MongoDB, no destino. 
+                        Como o DBSync usa o DEBEZIUM, o modelo de mensagem produzida fica na notação JSON, tornando simples a leitura e persistência dos dados.
                     </p>
                 </div>
                 <div class="col-md-2 col-md-offset-1"> <br> <br> 
@@ -357,7 +357,7 @@
                         <h4>DBSync</h4>
                     </div>
                     <div class="col-md-3">
-                        <h4>Documentation</h4>
+                        <h4>Documentação</h4>
                         <ul class="list-unstyled">
                             <li><a href="#"
                                     title="Features">Features</a></li>
